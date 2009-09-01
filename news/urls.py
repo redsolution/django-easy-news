@@ -25,5 +25,5 @@ urlpatterns = patterns('django.views.generic',
     url(r'^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{1,2})/$', 'date_based.archive_day', news_date_dict_month, name='news_archive_day'),
     # we can't assign news_item view to date_based.object_detail 
     # because it can't be reversed in get_absolute_url(). Maybe I'm wrong.
-    url(r'^(?P<object_id>\d+)/$', 'list_detail.object_detail', news_dict, name='news_item'),    
+    url(r'^(?P<slug>\w+)/$', 'list_detail.object_detail', news_dict, name='news_item'),
 )
