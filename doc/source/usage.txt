@@ -1,0 +1,40 @@
+Usage
+=====
+
+Usage is simple, just follow the `install` and you got an working application.
+
+You can also redefine news templates. 
+
+Templates
+---------
+
+Ordinary news uses following templates:
+
+
+    * news/newsitem.html
+
+        common template, wich included in news lists
+
+    * news/newsitem_archive.html
+
+        template for `django.views.generic.date_based.archive_index <http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-index>`_ view
+    
+    * news/newsitem_archive_year.html
+        
+        template for `django.views.generic.date_based.archive_year <http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-year>`_ view
+
+    * news/newsitem_archive_month.html
+
+        template for `django.views.generic.date_based.archive_month <http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-month>`_ view
+
+    * news/newsitem_archive_day.html 
+        
+        template for `django.views.generic.date_based.archive_day <http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-day>`_ view
+    
+    * news/newsitem_detail.html 
+        
+        template for `django.views.generic.list_detail.object_detail <http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-list-detail-object-detail>`_ view
+
+As you can see, application uses django `generic views <http://docs.djangoproject.com/en/1.0/ref/generic-views/>`_
+for context lookup take a look into django documentation
+

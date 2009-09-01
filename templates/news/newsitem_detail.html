@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block center %}
+    <table class="article">
+    <tr><td>
+        <h3>{{ object.title }}</h3>
+        {{ object.date|date:"d" }} {{ object.rus_month }} {{ object.date|date:"Y" }}
+        <hr />
+        {{ object.text|safe }}
+    </td></tr></table>
+{% endblock  %}

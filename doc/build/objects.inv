@@ -1,0 +1,9 @@
+# Sphinx inventory version 1
+# Project: django-ordinary-news
+# Version: 0.0.1
+news.models.NewsItem.slug attribute index.html
+news.models.NewsItem class index.html
+news.models.NewsItem.short attribute index.html
+news.models.NewsItem.text attribute index.html
+news.models.NewsItem.title attribute index.html
+news.models.NewsItem.date attribute index.html

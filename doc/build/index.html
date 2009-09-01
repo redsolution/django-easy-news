@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to django-ordinary-news&#8217;s documentation! &mdash; django-ordinary-news v0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-ordinary-news v0.0.1 documentation" href="" />
+    <link rel="next" title="Installation" href="install.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li><a href="">django-ordinary-news v0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  
+  <div class="section" id="welcome-to-django-ordinary-news-s-documentation">
+<h1>Welcome to django-ordinary-news&#8217;s documentation!<a class="headerlink" href="#welcome-to-django-ordinary-news-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="install.html">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference external" href="usage.html#templates">Templates</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="django-ordinary-news">
+<h1>Django ordinary news<a class="headerlink" href="#django-ordinary-news" title="Permalink to this headline">¶</a></h1>
+<p>Application provides news functionality for your site.</p>
+<p>It contains only one model</p>
+<dl class="class">
+<dt id="news.models.NewsItem">
+<!--[news.models.NewsItem]-->class <tt class="descclassname">news.models.</tt><tt class="descname">NewsItem</tt><a class="headerlink" href="#news.models.NewsItem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="news.models.NewsItem.title">
+<!--[news.models.NewsItem.title]--><tt class="descname">title</tt><a class="headerlink" href="#news.models.NewsItem.title" title="Permalink to this definition">¶</a></dt>
+<dd>News title</dd></dl>
+
+<dl class="attribute">
+<dt id="news.models.NewsItem.slug">
+<!--[news.models.NewsItem.slug]--><tt class="descname">slug</tt><a class="headerlink" href="#news.models.NewsItem.slug" title="Permalink to this definition">¶</a></dt>
+<dd>Slug. If None provided, id attribute will be inserted while saving</dd></dl>
+
+<dl class="attribute">
+<dt id="news.models.NewsItem.date">
+<!--[news.models.NewsItem.date]--><tt class="descname">date</tt><a class="headerlink" href="#news.models.NewsItem.date" title="Permalink to this definition">¶</a></dt>
+<dd>Publication date.</dd></dl>
+
+<dl class="attribute">
+<dt id="news.models.NewsItem.short">
+<!--[news.models.NewsItem.short]--><tt class="descname">short</tt><a class="headerlink" href="#news.models.NewsItem.short" title="Permalink to this definition">¶</a></dt>
+<dd>Short summary of news item.</dd></dl>
+
+<dl class="attribute">
+<dt id="news.models.NewsItem.text">
+<!--[news.models.NewsItem.text]--><tt class="descname">text</tt><a class="headerlink" href="#news.models.NewsItem.text" title="Permalink to this definition">¶</a></dt>
+<dd>Full text. TinyMCE Field used.</dd></dl>
+
+<p>..attribute:: published</p>
+<blockquote>
+Display this item on site or not</blockquote>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Welcome to django-ordinary-news&#8217;s documentation!</a><ul>
+</ul>
+</li>
+<li><a class="reference external" href="#django-ordinary-news">Django ordinary news</a></li>
+</ul>
+
+            <h4>Next topic</h4>
+            <p class="topless"><a href="install.html" title="next chapter">Installation</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/index.txt">Show Source</a></li>
+            </ul>
+          <h3>Quick search</h3>
+            <form class="search" action="search.html" method="get">
+              <input type="text" name="q" size="18" /> <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="N">next</a> |</li>
+        <li><a href="">django-ordinary-news v0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ivan Gromov.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.5.2.
+    </div>
+  </body>
+</html>

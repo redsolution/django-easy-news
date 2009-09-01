@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Usage &mdash; django-ordinary-news v0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0.1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-ordinary-news v0.0.1 documentation" href="index.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">django-ordinary-news v0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>Usage is simple, just follow the <cite>install</cite> and you got an working application.</p>
+<p>You can also redefine news templates.</p>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>Ordinary news uses following templates:</p>
+<blockquote>
+<ul>
+<li><p class="first">news/newsitem.html</p>
+<blockquote>
+<p>common template, wich included in news lists</p>
+</blockquote>
+</li>
+<li><p class="first">news/newsitem_archive.html</p>
+<blockquote>
+<p>template for <a class="reference external" href="http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-index">django.views.generic.date_based.archive_index</a> view</p>
+</blockquote>
+</li>
+<li><p class="first">news/newsitem_archive_year.html</p>
+<blockquote>
+<p>template for <a class="reference external" href="http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-year">django.views.generic.date_based.archive_year</a> view</p>
+</blockquote>
+</li>
+<li><p class="first">news/newsitem_archive_month.html</p>
+<blockquote>
+<p>template for <a class="reference external" href="http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-month">django.views.generic.date_based.archive_month</a> view</p>
+</blockquote>
+</li>
+<li><p class="first">news/newsitem_archive_day.html</p>
+<blockquote>
+<p>template for <a class="reference external" href="http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-date-based-archive-day">django.views.generic.date_based.archive_day</a> view</p>
+</blockquote>
+</li>
+<li><p class="first">news/newsitem_detail.html</p>
+<blockquote>
+<p>template for <a class="reference external" href="http://docs.djangoproject.com/en/1.0/ref/generic-views/#django-views-generic-list-detail-object-detail">django.views.generic.list_detail.object_detail</a> view</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>As you can see, application uses django <a class="reference external" href="http://docs.djangoproject.com/en/1.0/ref/generic-views/">generic views</a>
+for context lookup take a look into django documentation</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Usage</a><ul>
+<li><a class="reference external" href="#templates">Templates</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="install.html" title="previous chapter">Installation</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/usage.txt">Show Source</a></li>
+            </ul>
+          <h3>Quick search</h3>
+            <form class="search" action="search.html" method="get">
+              <input type="text" name="q" size="18" /> <input type="submit" value="Go" />
+              <input type="hidden" name="check_keywords" value="yes" />
+              <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">django-ordinary-news v0.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Ivan Gromov.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.5.2.
+    </div>
+  </body>
+</html>

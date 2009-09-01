@@ -1,0 +1,6 @@
+<hr>
+<p class="date">{{ news_item.date|date:"d" }} {{ news_item.rus_month }} {{ news_item.date|date:"Y" }}</p>
+<a href="{{ news_item.get_absolute_url }}"><h4>{{ news_item.title }}</h4></a></p>
+<div>
+    {{ news_item.text|safe }}
+</div>

@@ -1,0 +1,30 @@
+Installation
+============
+
+#. Create a copy of application with
+
+    ``git clone git://redsolution.ru/django-ord-news.git``
+
+#. include source dir into sys.path: ::
+    
+    import sys
+    sys.path[0:0] = ['<path>/django-ord-news']
+
+#. Add new into INSTALLED_APPS: ::
+
+    INSTALLED_APPS = (
+        ...
+        'news',
+        ...
+    )
+
+#. Include application in your urls.py ::
+
+    urlpattenrs = (
+        ...
+        (r'^news/', include('news.urls')),
+        ...
+    )
+
+#. run ``manage.py syncdb``
+
