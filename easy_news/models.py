@@ -17,15 +17,23 @@ class News(models.Model):
 
     date = models.DateField(verbose_name=u'Дата', default=datetime.date.today)
 
-    short = HTMLField(verbose_name=u'Кратное описание', null=True)
-    text = HTMLField(verbose_name=u'Полный текст', null=True)
+    short = HTMLField(verbose_name=u'Кратное описание', default='')
+    text = HTMLField(verbose_name=u'Полный текст', default='')
 
     published = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
     def save(self, *args, **kwds):
+        need_update = False
         if self.slug is None:
-            self.slug = self.id
+            if self.id is None:
+                need_update = True
+                self.slug = ''
+            else:
+                self.slug = self.id
         super(News, self).save(*args, **kwds)
+        if need_update:
+            self.slug = self.id
+            super(News, self).save(force_update=True)
     save.alters_data = True
 
     @models.permalink
