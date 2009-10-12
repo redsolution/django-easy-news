@@ -1,0 +1,43 @@
+h1. Install
+
+h2. Buildout
+
+<pre>
+[buildout]
+parts = ...
+        django-easy-news
+        
+[django]
+...
+extra-paths = ...
+              ${django-easy-news:location}
+
+[django-easy-news]
+recipe = zerokspot.recipe.git
+repository = git://verne.redsolution.ru/django-easy-news.git
+</pre>
+
+h2. settings.py
+
+<pre>
+INSTALLED_APPS = (
+...
+    'easy_news',
+)
+...
+</pre>
+
+h2. urls.py
+
+<pre>
+urlpatterns += patterns('',
+...
+    (r'^news/', include('easy_news.urls')),
+...
+</pre>
+
+h2. syncdb
+
+<pre>
+$ manage.py syncdb
+</pre>
