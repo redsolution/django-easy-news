@@ -13,7 +13,7 @@ class NewsItem(models.Model):
         verbose_name_plural = u'Новости'
 
     title = models.CharField(max_length=200, verbose_name=u'Заголовок новости')
-    slug = models.SlugField(max_length=200, verbose_name=u'Адрес', unique_for_date='date')
+    slug = models.SlugField(max_length=200, verbose_name=u'Адрес', unique=True)
 
     date = models.DateField(verbose_name=u'Дата', default=datetime.date.today)
 
