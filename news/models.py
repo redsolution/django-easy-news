@@ -16,7 +16,7 @@ class NewsItem(models.Model):
 
     date = models.DateTimeField(auto_now_add=True, editable=True, verbose_name=u'Дата')
 
-    short = models.TextField(verbose_name=u'Кратное описание', null=True)
+    short = HTMLField(verbose_name=u'Кратное описание', null=True)
     text = HTMLField(verbose_name=u'Полный текст', null=True)
 
     published = models.BooleanField(verbose_name=u'Опубликовано', default=False)
