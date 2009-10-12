@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
-from django.db import models
-from tinymce.models import HTMLField
 import datetime
+from django.db import models
+try:
+    from tinymce.models import HTMLField
+except ImportError:
+    from django.db.models.fields import TextField as HTMLField
 
 RU_MONTHS = [u'Января', u'Февраля', u'Марта', u'Апреля', u'Мая', u'Июня',
     u'Июля', u'Августа', u'Сентября', u'Октября', u'Ноября', u'Декабря']
