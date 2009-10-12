@@ -14,6 +14,7 @@ class NewsItem(models.Model):
     class Meta:
         verbose_name = u'Новость'
         verbose_name_plural = u'Новости'
+        ordering = ['published', 'title', ]
 
     title = models.CharField(max_length=200, verbose_name=u'Заголовок новости')
     slug = models.SlugField(max_length=200, verbose_name=u'Адрес', unique=True)
