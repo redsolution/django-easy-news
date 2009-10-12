@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from django import forms
-from news.models import NewsItem
+from easy_news.models import News
 
-class NewsItemForm(forms.ModelForm):
+class NewsForm(forms.ModelForm):
     class Meta:
-        model = NewsItem
+        model = News
     title = forms.CharField(widget=forms.Textarea(attrs={'rows': 3}))
 
-class NewsItemAdmin(admin.ModelAdmin):
-    model = NewsItem
+class NewsAdmin(admin.ModelAdmin):
     list_display = ['title', 'date', 'published',]
     prepopulated_fields = {'slug': ('title',)}
-    form = NewsItemForm
-
+    form = NewsForm
 
 try:
-    admin.site.register(NewsItem, NewsItemAdmin)
+    admin.site.register(News, NewsAdmin)
 except admin.sites.AlreadyRegistered:
     pass

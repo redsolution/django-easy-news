@@ -1,7 +1,0 @@
-{% extends 'news/newsitem_archive.html' %}
-{% block center %}
-<h2>Архив за день</h2>
-    {% for news_item in object_list %}
-            {% include 'news/newsitem.html' %}
-    {% endfor %}
-{% endblock %}

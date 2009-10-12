@@ -1,7 +1,0 @@
-{% extends 'news/newsitem_archive.html' %}
-{% block center %}
-<h2>Архив за {{ year }} год</h2>
-    {% for month in date_list %}
-        <a href="../{{ year }}-{{ month|date:"m" }}/">{{ month|date:"M" }}</a>
-    {% endfor %}
-{% endblock %}
