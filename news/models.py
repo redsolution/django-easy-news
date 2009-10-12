@@ -24,7 +24,7 @@ class NewsItem(models.Model):
     short = HTMLField(verbose_name=u'Кратное описание', null=True)
     text = HTMLField(verbose_name=u'Полный текст', null=True)
 
-    published = models.BooleanField(verbose_name=u'Опубликовано', default=False)
+    published = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
     def rus_month(self):
         return RU_MONTHS[self.date.month - 1]
