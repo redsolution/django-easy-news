@@ -9,4 +9,5 @@
             <div><a href="{% url news_archive_year date|date:"Y" %}">{{ date|date:"Y" }}</a></div>
         {% endfor %}
     </div>
+    <div class="news-list"><a href="{% url news_list %}">Все новости</a></div>
 {% endblock %}
