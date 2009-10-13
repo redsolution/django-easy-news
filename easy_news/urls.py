@@ -4,27 +4,27 @@ from django.views.generic.date_based import *
 from easy_news.models import News
 
 archive_index_dict = {
-    'queryset': News.objects.filter(published=True),
+    'queryset': News.objects.filter(show=True),
     'date_field': 'date', 
     'template_object_name': 'news_list',
 }
 
 archive_year_dict = {
-    'queryset': News.objects.filter(published=True),
+    'queryset': News.objects.filter(show=True),
     'date_field': 'date', 
     'template_object_name': 'news',
     'make_object_list': True,
 }
 
 archive_month_dict = {
-    'queryset': News.objects.filter(published=True),
+    'queryset': News.objects.filter(show=True),
     'date_field': 'date', 
     'template_object_name': 'news',
     'month_format': '%m',
 }
 
 object_detail_dict = {
-    'queryset': News.objects.filter(published=True),
+    'queryset': News.objects.filter(show=True),
     'date_field': 'date', 
     'template_object_name': 'news',
     'month_format': '%m',
@@ -32,7 +32,7 @@ object_detail_dict = {
 }
 
 object_list_dict = {
-    'queryset': News.objects.filter(published=True),
+    'queryset': News.objects.filter(show=True),
     'template_object_name': 'news',
 }
 

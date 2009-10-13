@@ -20,7 +20,7 @@ class News(models.Model):
     short = HTMLField(verbose_name=u'Кратное описание', default='', blank=True)
     text = HTMLField(verbose_name=u'Полный текст', default='', blank=True)
 
-    published = models.BooleanField(verbose_name=u'Опубликовано', default=True)
+    show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
     def save(self, *args, **kwds):
         need_update = False
