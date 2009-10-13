@@ -38,9 +38,9 @@ object_list_dict = {
 
 urlpatterns = patterns('',
     url(r'^$', 'django.views.generic.date_based.archive_index', archive_index_dict, name='news_archive_index'),
-    url(r'^(?P<year>\d{4})-(?P<month>\d{1,2})-(?P<day>\d{1,2})-(?P<slug>\w+)/$', 'django.views.generic.date_based.object_detail', object_detail_dict, name='news_detail'),
+    url(r'^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})-(?P<slug>[-\w]+)/$', 'django.views.generic.date_based.object_detail', object_detail_dict, name='news_detail'),
     url(r'^list/$', 'django.views.generic.list_detail.object_list', object_list_dict, name='news_list'),
     url(r'^archive/(?P<year>\d{4})/$', 'django.views.generic.date_based.archive_year', archive_year_dict, name='news_archive_year'),
-    url(r'^archive/(?P<year>\d{4})-(?P<month>\d{1,2})/$', 'django.views.generic.date_based.archive_month', archive_month_dict, name='news_archive_month'),
-    url(r'^archive/(?P<year>\d{4})-(?P<month>\d{1,2})-(?P<day>\d{1,2})/$', 'django.views.generic.date_based.archive_day', archive_month_dict, name='news_archive_day'),
+    url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})/$', 'django.views.generic.date_based.archive_month', archive_month_dict, name='news_archive_month'),
+    url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/$', 'django.views.generic.date_based.archive_day', archive_month_dict, name='news_archive_day'),
 )
