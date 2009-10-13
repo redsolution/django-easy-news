@@ -10,15 +10,15 @@ class News(models.Model):
     class Meta:
         verbose_name = u'Новость'
         verbose_name_plural = u'Новости'
-        ordering = ['published', 'title', ]
+        ordering = ['-date', 'title', ]
 
     title = models.CharField(max_length=200, verbose_name=u'Заголовок новости')
     slug = models.SlugField(max_length=200, verbose_name=u'Слаг', unique_for_date='date')
 
     date = models.DateField(verbose_name=u'Дата', default=datetime.date.today)
 
-    short = HTMLField(verbose_name=u'Кратное описание', default='')
-    text = HTMLField(verbose_name=u'Полный текст', default='')
+    short = HTMLField(verbose_name=u'Кратное описание', default='', blank=True)
+    text = HTMLField(verbose_name=u'Полный текст', default='', blank=True)
 
     published = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
