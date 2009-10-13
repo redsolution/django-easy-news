@@ -39,5 +39,8 @@ class News(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('news_detail', [], {
+            'year': self.date.year,
+            'month': self.date.month,
+            'day': self.date.day,
             'slug': self.slug,
         })
