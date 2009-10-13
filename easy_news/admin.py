@@ -9,7 +9,7 @@ class NewsForm(forms.ModelForm):
     title = forms.CharField(widget=forms.Textarea(attrs={'rows': 3}))
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'date', 'published',]
+    list_display = ['title', 'date', 'show',]
     prepopulated_fields = {'slug': ('title',)}
     form = NewsForm
 
