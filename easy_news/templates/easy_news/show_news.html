@@ -1,0 +1,10 @@
+<div class="news-list">
+    {% if news_list %}
+        {% for news in news_list %}
+            <div class="news-date">{{ news.date|date:"d.m.Y" }}</div>
+            <div class="news-title"><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></div>
+        {% endfor %}
+    {% else %}
+        <div class="news-empty">Нет новостей</div>
+    {% endif %}
+</div>
