@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
 import datetime
 from django.db import models
+from django.utils.translation import ugettext as _
+
 try:
     from tinymce.models import HTMLField
 except ImportError:
     from django.db.models.fields import TextField as HTMLField
+
+
+MONTHS = [
+    _(' January'), _(' February'), _(' March'), _(' April'), _(' May'),
+    _(' June'), _(' July'), _(' August'), _(' September'), _(' October'),
+    _(' November'), _(' December')
+]
 
 class News(models.Model):
     class Meta:
@@ -21,6 +30,9 @@ class News(models.Model):
     text = HTMLField(verbose_name=u'Полный текст', default='', blank=True)
 
     show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
+
+    def month(self):
+        return MONTHS[self.date.month - 1]
 
     def save(self, *args, **kwds):
         need_update = False
