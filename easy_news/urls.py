@@ -2,6 +2,7 @@
 from django.conf.urls.defaults import *
 from django.views.generic.date_based import *
 from easy_news.models import News
+import datetime
 
 archive_index_dict = {
     'queryset': News.objects.filter(show=True),
@@ -32,7 +33,7 @@ object_detail_dict = {
 }
 
 object_list_dict = {
-    'queryset': News.objects.filter(show=True),
+    'queryset': News.objects.filter(show=True, date__lte=datetime.datetime.now),
     'template_object_name': 'news',
 }
 
