@@ -21,7 +21,7 @@ class BaseNewsProxy(MenuProxy):
         assert object is not DoesNotDefined, DoesNotDefined
         if object is None:
             return None
-        return format(object, 'Y')
+        return format(object, self.title_format)
 
     def url(self, object):
         assert object is not DoesNotDefined, DoesNotDefined
@@ -30,7 +30,7 @@ class BaseNewsProxy(MenuProxy):
         kwargs = {}
         for field in self.url_fields:
             kwargs[field] = getattr(object, field)
-        return reverse('news_archive_%s' % type, kwargs=kwargs)
+        return reverse('news_archive_%s' % self.type, kwargs=kwargs)
 
     def ancestors(self, object, menu_item):
         return None
@@ -48,7 +48,7 @@ class YearsProxy(BaseNewsProxy):
             '%s__lte' % self.date_field: now,
         }
         return self.model.objects.filter(**self.children_filter).exclude(**self.children_exclude).filter(
-            **lookup_kwargs).dates(self.date_field, type)
+            **lookup_kwargs).dates(self.date_field, self.type)
 
 class MonthesProxy(BaseNewsProxy):
     type = 'month'
@@ -64,7 +64,7 @@ class MonthesProxy(BaseNewsProxy):
             '%s__year' % self.date_field: menu_item.object.year,
         }
         return self.model.objects.filter(**self.children_filter).exclude(**self.children_exclude).filter(
-            **lookup_kwargs).dates(self.date_field, type)
+            **lookup_kwargs).dates(self.date_field, self.type)
 
 class DaysProxy(BaseNewsProxy):
     type = 'day'
@@ -86,10 +86,11 @@ class DaysProxy(BaseNewsProxy):
             '%s__lt' % self.date_field: last_day,
         }
         return self.model.objects.filter(**self.children_filter).exclude(**self.children_exclude).filter(
-            **lookup_kwargs).dates(self.date_field, type)
+            **lookup_kwargs).dates(self.date_field, self.type)
 
 class NewsProxy(FlatProxy):
     def __init__(self, **kwargs):
+        self.date_field = 'date'
         self.model = News
         self.children_filter = {'show': True}
         self.children_exclude = {}
