@@ -17,6 +17,7 @@ recipe = zerokspot.recipe.git
 repository = git://verne.redsolution.ru/django-easy-news.git
 </pre>
 
+
 h2. settings.py
 
 <pre>
@@ -27,6 +28,7 @@ INSTALLED_APPS = (
 ...
 </pre>
 
+
 h2. urls.py
 
 <pre>
@@ -35,6 +37,79 @@ urlpatterns += patterns('',
     (r'^news/', include('easy_news.urls')),
 ...
 </pre>
+
+
+h2. sitemap in urls.py
+
+<pre>
+news_dict = {
+    'queryset': News.objects.filter(show=True),
+    'date_field': 'date',
+}
+
+sitemaps = {
+...
+    'news': GenericSitemap(news_dict),
+}
+</pre>
+
+
+h2. menuproxy in settings.py
+
+<pre>
+MENU_PROXY_RULES = [
+...
+    {
+        'name': 'news_archive',
+        'method': 'insert',
+        'proxy': 'menuproxy.proxies.ReverseProxy',
+        'viewname': 'news_archive_index',
+        'title_text': u'Новости',
+    },
+        {
+            'name': 'news_years',
+            'method': 'children',
+            'proxy': 'easy_news.menu.YearsProxy',
+            'inside': 'news_archive',
+            'point_function': 'easy_news.menu.year_point',
+            'object_function': 'easy_news.menu.any_object',
+        },
+            {
+                'name': 'news_monthes',
+                'method': 'children',
+                'proxy': 'easy_news.menu.MonthesProxy',
+                'inside': 'news_years',
+                'point_function': 'easy_news.menu.month_point',
+                'object_function': 'easy_news.menu.any_object',
+            },
+                {
+                    'name': 'news_days',
+                    'method': 'children',
+                    'proxy': 'easy_news.menu.DaysProxy',
+                    'inside': 'news_monthes',
+                    'point_function': 'easy_news.menu.day_point',
+                    'object_function': 'easy_news.menu.any_object',
+                },
+                    {
+                        'name': 'news_detail',
+                        'method': 'children',
+                        'proxy': 'easy_news.menu.NewsProxy',
+                        'inside': 'news_days',
+                        'point_function': 'easy_news.menu.detail_point',
+                        'object_function': 'easy_news.menu.any_object',
+                    },
+        {
+            'name': 'news_list',
+            'method': 'insert',
+            'proxy': 'menuproxy.proxies.ReverseProxy',
+            'inside': 'news_archive',
+            'viewname': 'news_list',
+            'title_text': u'Все новости',
+        },
+]
+EASY_NEWS_MENU_LEVEL = 4
+</pre>
+
 
 h2. syncdb
 

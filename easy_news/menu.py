@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.dateformat import format
 from menuproxy.proxies import MenuProxy, FlatProxy, DoesNotDefined
 from easy_news.models import News
+
+EASY_NEWS_MENU_LEVEL = getattr(settings, 'EASY_NEWS_MENU_LEVEL', 3)
 
 class RootPoint(object):
     def __init__(self, object):
@@ -131,7 +134,7 @@ class NewsProxy(FlatProxy):
         }
         return self.model.objects.filter(**self.children_filter).exclude(**self.children_exclude).filter(
             **lookup_kwargs)
-        
+
 def any_object(object, forward):
     if forward:
         return RootPoint(object)
@@ -157,4 +160,14 @@ def detail_point(object, forward):
     if forward:
         return DoesNotDefined
     else:
-        return object.date
+        object = object.date
+        if EASY_NEWS_MENU_LEVEL == 4:
+            return object
+        object = object.replace(day=1)
+        if EASY_NEWS_MENU_LEVEL == 3:
+            return object
+        object = unicode(object.year)
+        if EASY_NEWS_MENU_LEVEL == 2:
+            return object
+        else:
+            return DoesNotDefined 
