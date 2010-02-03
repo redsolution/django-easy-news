@@ -44,8 +44,6 @@ def calendar(year=None, month=None):
         if i < 7:
             week_headers.append(day)
         cal_day = {}
-        week_headers.append(day)
-        cal_day = {}
         cal_day['day'] = day
         cal_day['news'] = False
         for news in news_list:
