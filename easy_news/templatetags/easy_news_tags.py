@@ -44,11 +44,13 @@ def calendar(year=None, month=None):
         if i < 7:
             week_headers.append(day)
         cal_day = {}
+        week_headers.append(day)
+        cal_day = {}
         cal_day['day'] = day
-        cal_day['event'] = False
+        cal_day['news'] = False
         for news in news_list:
-            if day >= news.date.date() and day <= news.date.date():
-                cal_day['event'] = True
+            if day >= news.date and day <= news.date:
+                cal_day['news'] = news
         if day.month == month:
             cal_day['in_month'] = True
         else:
