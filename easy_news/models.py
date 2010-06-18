@@ -4,6 +4,11 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 try:
+    from south.modelsinspector import add_introspection_rules
+except ImportError:
+    pass
+
+try:
     from tinymce.models import HTMLField
 except ImportError:
     from django.db.models.fields import TextField as HTMLField
@@ -21,7 +26,7 @@ class News(models.Model):
         verbose_name_plural = u'Новости'
         ordering = ['-date', 'title', ]
 
-    title = models.CharField(max_length=200, verbose_name=u'Заголовок новости')
+    title = models.CharField(max_length=500, verbose_name=u'Заголовок новости')
     slug = models.SlugField(max_length=200, verbose_name=u'Слаг', unique_for_date='date')
 
     date = models.DateField(verbose_name=u'Дата', default=datetime.date.today)
@@ -56,3 +61,8 @@ class News(models.Model):
             'day': '%02d' % self.date.day,
             'slug': self.slug,
         })
+
+try:
+    add_introspection_rules([], ['tinymce\.models\.HTMLField'])
+except:
+    pass
