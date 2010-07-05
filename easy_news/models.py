@@ -2,6 +2,7 @@
 import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from easy_news import settings as news_settings
 
 try:
     from south.modelsinspector import add_introspection_rules
@@ -36,6 +37,10 @@ class News(models.Model):
 
     show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
 
+    if news_settings.NEWS_TAGGING:
+        from tagging import fields
+        tags = fields.TagField(null=True)
+
     def month(self):
         return MONTHS[self.date.month - 1]
 
@@ -61,6 +66,9 @@ class News(models.Model):
             'day': '%02d' % self.date.day,
             'slug': self.slug,
         })
+
+    def __unicode__(self):
+        return self.title
 
 try:
     add_introspection_rules([], ['tinymce\.models\.HTMLField'])
