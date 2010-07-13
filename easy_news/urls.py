@@ -5,32 +5,29 @@ from easy_news.models import News
 import datetime
 
 from easy_news import settings as news_settings
-if news_settings.NEWS_TAGGING:
-    from tagging.views import tagged_object_list
-
 archive_index_dict = {
     'queryset': News.objects.filter(show=True),
-    'date_field': 'date', 
+    'date_field': 'date',
     'template_object_name': 'news_list',
 }
 
 archive_year_dict = {
     'queryset': News.objects.filter(show=True),
-    'date_field': 'date', 
+    'date_field': 'date',
     'template_object_name': 'news',
     'make_object_list': True,
 }
 
 archive_month_dict = {
     'queryset': News.objects.filter(show=True),
-    'date_field': 'date', 
+    'date_field': 'date',
     'template_object_name': 'news',
     'month_format': '%m',
 }
 
 object_detail_dict = {
     'queryset': News.objects.filter(show=True),
-    'date_field': 'date', 
+    'date_field': 'date',
     'template_object_name': 'news',
     'month_format': '%m',
     'slug_field': 'slug',
@@ -48,7 +45,12 @@ urlpatterns = patterns('',
     url(r'^archive/(?P<year>\d{4})/$', 'django.views.generic.date_based.archive_year', archive_year_dict, name='news_archive_year'),
     url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})/$', 'django.views.generic.date_based.archive_month', archive_month_dict, name='news_archive_month'),
     url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/$', 'django.views.generic.date_based.archive_day', archive_month_dict, name='news_archive_day'),
-    url(r'^tag/(?P<tag>[^/]+)/$', tagged_object_list,
-        dict(queryset_or_model=News.objects.filter(show=True), paginate_by=10, allow_empty=True,
-        template_object_name='news'), name='news_tag_detail'),
 )
+
+if news_settings.NEWS_TAGGING:
+    from tagging.views import tagged_object_list
+    urlpatterns += patterns('',
+        url(r'^tag/(?P<tag>[^/]+)/$', tagged_object_list,
+            dict(queryset_or_model=News.objects.filter(show=True), paginate_by=10, allow_empty=True,
+            template_object_name='news'), name='news_tag_detail'),
+    )

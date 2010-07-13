@@ -6,4 +6,4 @@
 .settings
 build/*
 dist/*
-grandma.django_easy_news.egg-info/*
+*.egg-info/*
