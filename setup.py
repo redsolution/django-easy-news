@@ -35,8 +35,9 @@ setup(
         'Programming Language :: Python :: 2.5',
         'Topic :: Software Development :: Version Control',
     ],
-    packages=['easy_news.%s' % p for p in find_packages('easy_news')],
+    packages=find_packages(),
     install_requires=[],
+    include_package_data=True,
     zip_safe=False,
     long_description=open('README').read(),
     entry_points={
