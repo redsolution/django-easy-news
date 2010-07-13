@@ -1,0 +1,4 @@
+recursive-include easy_news *.html
+recursive-include easy_news *.cfg
+recursive-include easy_news *.conf
+recursive-include easy_news *.py
