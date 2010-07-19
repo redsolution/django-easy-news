@@ -4,26 +4,17 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from grandma.models import BaseSettings
+from grandma.models import GrandmaSettings
 from easy_news.grandma_setup.models import EasyNewsSettings
-from django.core.exceptions import ObjectDoesNotExist
-
-def menu_is_enabled():
-    base_settings = BaseSettings.objects.get_settings()
-    try:
-        application = base_settings.applications.get(package='django-menu-proxy')
-        return application.ok
-    except ObjectDoesNotExist:
-        return False
 
 def index(request):
-    easy_news_settings = EasyNewsSettings.objects.get_settings()
-
+    grandma_settings = GrandmaSettings.objects.get_settings()
     exclude = []
-    if not menu_is_enabled():
+    if not grandma_settings.package_was_installed('grandma.django-menu-proxy'):
         exclude += ['menu_proxy_level']
     form_class = modelform_factory(EasyNewsSettings, exclude=exclude)
 
+    easy_news_settings = EasyNewsSettings.objects.get_settings()
     if request.method == 'POST':
         form = form_class(data=request.POST, files=request.FILES, instance=easy_news_settings)
         if form.is_valid():
