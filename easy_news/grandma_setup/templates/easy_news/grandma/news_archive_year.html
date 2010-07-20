@@ -1,0 +1,32 @@
+{% load grandma_tags %}{% raw %}{% extends "easy_news/base.html" %}
+{% load i18n %}
+
+{% block content_title %}{% trans 'News for' %} {{ year }} {% trans 'year' %}{% endblock %}
+
+{% block content %}
+    {% include "easy_news/news_include.html" %}
+    <div class="news-monthes">
+        {% for date in date_list %}
+            <div><a href="{% url news_archive_month year date|date:"m" %}">{{ date|date:"F" }}</a></div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% endraw %}{% if easy_news_settings.menu_proxy_was_installed %}
+{% raw %}{% load menuproxy_tags %}{% endraw %}
+{% if easy_news_settings.show_years %}{% raw %}
+{% load menuproxy_tags %}
+{% block main_menu %}{% show_main_menu 'news_years' year %}{% endblock %}
+{% block auto_menu %}{% show_auto_menu 'news_years' year %}{% endblock %}
+{% block full_menu %}{% show_full_menu 'news_years' year %}{% endblock %}
+{% block breadcrumbs %}{% show_breadcrumbs 'news_years' year %}{% endblock %}
+{% endraw %}{% else %}{% if easy_news_settings.list_in_root %}{% raw %}
+{% block main_menu %}{% show_main_menu 'news_list' %}{% endblock %}
+{% block auto_menu %}{% show_auto_menu 'news_list' %}{% endblock %}
+{% block full_menu %}{% show_full_menu 'news_list' %}{% endblock %}
+{% block breadcrumbs %}{% show_breadcrumbs 'news_list' %}{% endblock %}
+{% endraw %}{% else %}{% raw %}
+{% block main_menu %}{% show_main_menu 'news_archive' %}{% endblock %}
+{% block auto_menu %}{% show_auto_menu 'news_archive' %}{% endblock %}
+{% block full_menu %}{% show_full_menu 'news_archive' %}{% endblock %}
+{% block breadcrumbs %}{% show_breadcrumbs 'news_archive' %}{% endblock %}
+{% endraw %}{% endif %}{% endif %}{% endif %}
