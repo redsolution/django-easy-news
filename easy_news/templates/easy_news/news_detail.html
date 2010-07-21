@@ -1,6 +1,7 @@
 {% extends "easy_news/base.html" %}
 
 {% block title %}{{ object.title }}{% endblock %}
+{% block content_title %}{{ object.title }}{% endblock %}
 
 {% block content %}
     <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
