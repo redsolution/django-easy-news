@@ -1,9 +1,9 @@
 <div class="news-list">
-    {% if news_list %}
-        {% for news in news_list %}
-            <div class="news-date">{{ news.date|date:"d" }} {{ news.month }} {{ news.date|date:"Y" }}</div>
-            <div class="news-title"><a href="{{ news.get_absolute_url }}">{{ news.title }}</a></div>
-            <div class="news-short">{{ news.short|safe }}</div>
+    {% if object_list %}
+        {% for object in object_list %}
+            <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
+            <div class="news-title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
+            <div class="news-short">{{ object.short|safe }}</div>
         {% endfor %}
     {% else %}
         <div class="news-empty">Нет новостей</div>

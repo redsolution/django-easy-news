@@ -9,7 +9,7 @@ register = template.Library()
 
 @register.inclusion_tag('easy_news/show_news.html')
 def show_news(num_latest=5):
-    news_list = News.objects.filter(show=True).filter(date__lte=datetime.now()).order_by('-date')[:num_latest]
+    object_list = News.objects.filter(show=True).filter(date__lte=datetime.now()).order_by('-date')[:num_latest]
     return locals()
 
 def get_last_day_of_month(year, month):
@@ -27,7 +27,7 @@ def calendar(year=None, month=None):
     if not month:
         month = date.today().month
 
-    news_list = News.objects.filter(date__year=year, date__month=month)
+    object_list = News.objects.filter(date__year=year, date__month=month)
 
     first_day_of_month = date(year, month, 1)
     last_day_of_month = get_last_day_of_month(year, month)
@@ -46,9 +46,9 @@ def calendar(year=None, month=None):
         cal_day = {}
         cal_day['day'] = day
         cal_day['news'] = False
-        for news in news_list:
-            if day >= news.date and day <= news.date:
-                cal_day['news'] = news
+        for object in object_list:
+            if day >= object.date and day <= object.date:
+                cal_day['news'] = object
         if day.month == month:
             cal_day['in_month'] = True
         else:

@@ -1,21 +1,21 @@
-<h2>{% now "jS F Y" %}</h2>                                                                                                                                 
-<table class="cal_month_calendar">                                                                                                                          
-<tr>                                                                                                                                                        
-{% for day in headers %}                                                                                                                                    
-<th>{{ day|date:"D"|slice:":2" }}</hd>                                                                                                                      
-{% endfor %}                                                                                                                                                
-</tr>                                                                                                                                                       
-{% for week in calendar %}                                                                                                                                  
-<tr>                                                                                                                                                        
-{% for day in week %}                                                                                                                                       
-<td{% if not day.in_month %} class="gray"{% endif %}>                                                                                                       
-    {% if day.news %}                                                                                                                                       
-        <a href="{{ day.news.get_absolute_url }}">{{ day.day|date:"j" }}</a>                                                                                
-    {% else %}                                                                                                                                              
-        {{ day.day|date:"j" }}                                                                                                                              
-    {% endif %}                                                                                                                                             
-</td>                                                                                                                                                       
-{% endfor %}                                                                                                                                                
-</tr>                                                                                                                                                       
-{% endfor %}                                                                                                                                                
-</table>                                                                                                                                                    
+<h2>{% now "jS F Y" %}</h2>
+<table class="cal_month_calendar">
+<tr>
+{% for day in headers %}
+<th>{{ day|date:"D"|slice:":2" }}</hd>
+{% endfor %}
+</tr>
+{% for week in calendar %}
+<tr>
+{% for day in week %}
+<td{% if not day.in_month %} class="gray"{% endif %}>
+    {% if day.news %}
+        <a href="{{ day.news.get_absolute_url }}">{{ day.day|date:"j" }}</a>
+    {% else %}
+        {{ day.day|date:"j" }}
+    {% endif %}
+</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
