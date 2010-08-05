@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-09 12:23+0600\n"
+"POT-Creation-Date: 2010-08-05 14:03+0600\n"
 "PO-Revision-Date: 2010-04-09 12:18+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,50 +16,104 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models.py:13
+#: models.py:19
 msgid " January"
 msgstr "Января"
 
-#: models.py:13
+#: models.py:19
 msgid " February"
 msgstr "Февраля"
 
-#: models.py:13
+#: models.py:19
 msgid " March"
 msgstr "Марта"
 
-#: models.py:13
+#: models.py:19
 msgid " April"
 msgstr "Апреля"
 
-#: models.py:13
+#: models.py:19
 msgid " May"
 msgstr "Мая"
 
-#: models.py:14
+#: models.py:20
 msgid " June"
 msgstr "Июня"
 
-#: models.py:14
+#: models.py:20
 msgid " July"
 msgstr "Июля"
 
-#: models.py:14
+#: models.py:20
 msgid " August"
 msgstr "Августа"
 
-#: models.py:14
+#: models.py:20
 msgid " September"
 msgstr "Сентября"
 
-#: models.py:14
+#: models.py:20
 msgid " October"
 msgstr "Октября"
 
-#: models.py:15
+#: models.py:21
 msgid " November"
 msgstr "Ноября"
 
-#: models.py:15
+#: models.py:21
 msgid " December"
 msgstr "Декабря"
+
+#: grandma_setup/models.py:55
+msgid "Show only root"
+msgstr ""
+
+#: grandma_setup/models.py:59
+msgid "Show years, months, days and detail list of news"
+msgstr ""
+
+#: grandma_setup/models.py:62
+msgid "Menu proxy level"
+msgstr ""
+
+#: grandma_setup/models.py:64
+msgid "List of news in root of menu"
+msgstr ""
+
+#: grandma_setup/templates/easy_news/grandma/news_archive.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive.html:5
+msgid "Last news"
+msgstr ""
+
+#: grandma_setup/templates/easy_news/grandma/news_archive.html:14
+#: grandma_setup/templates/easy_news/grandma/news_detail.html:9
+#: grandma_setup/templates/easy_news/grandma/news_list.html:4
+#: grandma_setup/templates/easy_news/grandma/news_list.html:5
+#: grandma_setup/templates/easy_news/grandma/settings_menu.py:8
+#: grandma_setup/templates/easy_news/grandma/settings_menu.py:70
+msgid "All news"
+msgstr ""
+
+#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:5
+#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:5
+#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:5
+#: grandma_setup/templates/easy_news/grandma/news_detail.html:17
+msgid "News for"
+msgstr ""
+
+#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:5
+#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:5
+#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:4
+#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:5
+#: grandma_setup/templates/easy_news/grandma/news_detail.html:17
+msgid "year"
+msgstr ""
+
+#: grandma_setup/templates/easy_news/grandma/settings_menu.py:16
+msgid "news"
+msgstr ""
