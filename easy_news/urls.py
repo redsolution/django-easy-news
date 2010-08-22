@@ -47,6 +47,5 @@ if news_settings.NEWS_TAGGING:
     from tagging.views import tagged_object_list
     urlpatterns += patterns('',
         url(r'^tag/(?P<tag>[^/]+)/$', tagged_object_list,
-            dict(queryset_or_model=News.objects.filter(show=True), paginate_by=10, allow_empty=True,
-            template_object_name='news'), name='news_tag_detail'),
+            dict(queryset_or_model=News.objects.filter(show=True), paginate_by=10, allow_empty=True), name='news_tag_detail'),
     )
