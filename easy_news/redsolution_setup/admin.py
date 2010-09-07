@@ -1,8 +1,8 @@
 from django.contrib import admin
-from easy_news.grandma_setup.models import EasyNewsSettings
-from grandma.admin import GrandmaBaseAdmin
+from easy_news.redsolution_setup.models import EasyNewsSettings
+from redsolutioncms.admin import CMSBaseAdmin
 
-class EasyNewsSettingsAdmin(GrandmaBaseAdmin):
+class EasyNewsSettingsAdmin(CMSBaseAdmin):
     model = EasyNewsSettings
 
 try:

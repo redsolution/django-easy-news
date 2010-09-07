@@ -64,56 +64,56 @@ msgstr "Ноября"
 msgid " December"
 msgstr "Декабря"
 
-#: grandma_setup/models.py:55
+#: redsolution_setup/models.py:55
 msgid "Show only root"
 msgstr ""
 
-#: grandma_setup/models.py:59
+#: redsolution_setup/models.py:59
 msgid "Show years, months, days and detail list of news"
 msgstr ""
 
-#: grandma_setup/models.py:62
+#: redsolution_setup/models.py:62
 msgid "Menu proxy level"
 msgstr ""
 
-#: grandma_setup/models.py:64
+#: redsolution_setup/models.py:64
 msgid "List of news in root of menu"
 msgstr ""
 
-#: grandma_setup/templates/easy_news/grandma/news_archive.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:5
 msgid "Last news"
 msgstr ""
 
-#: grandma_setup/templates/easy_news/grandma/news_archive.html:14
-#: grandma_setup/templates/easy_news/grandma/news_detail.html:9
-#: grandma_setup/templates/easy_news/grandma/news_list.html:4
-#: grandma_setup/templates/easy_news/grandma/news_list.html:5
-#: grandma_setup/templates/easy_news/grandma/settings_menu.py:8
-#: grandma_setup/templates/easy_news/grandma/settings_menu.py:70
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:14
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_detail.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/settings_menu.pyt:8
+#: redsolution_setup/templates/easy_news/redsolutioncms/settings_menu.pyt:70
 msgid "All news"
 msgstr ""
 
-#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:5
-#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:5
-#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:5
-#: grandma_setup/templates/easy_news/grandma/news_detail.html:17
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_detail.html:17
 msgid "News for"
 msgstr ""
 
-#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive_day.html:5
-#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive_month.html:5
-#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:4
-#: grandma_setup/templates/easy_news/grandma/news_archive_year.html:5
-#: grandma_setup/templates/easy_news/grandma/news_detail.html:17
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:4
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_detail.html:17
 msgid "year"
 msgstr ""
 
-#: grandma_setup/templates/easy_news/grandma/settings_menu.py:16
+#: redsolution_setup/templates/easy_news/redsolutioncms/settings_menu.pyt:16
 msgid "news"
 msgstr ""

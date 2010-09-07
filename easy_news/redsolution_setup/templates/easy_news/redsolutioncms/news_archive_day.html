@@ -1,19 +1,19 @@
-{% load grandma_tags %}{% raw %}{% extends "easy_news/base.html" %}
+{% load redsolution_tags %}{% raw %}{% extends "easy_news/base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans 'News for' %} {{ month|date:"F Y" }} {% trans 'year' %}{% endblock %}
-{% block content_title %}{% trans 'News for' %} {{ month|date:"F Y" }} {% trans 'year' %}{% endblock %}
+{% block title %}{% trans 'News for' %} {{ day|date:"j M Y" }} {% trans 'year' %}{% endblock %}
+{% block content_title %}{% trans 'News for' %} {{ day|date:"j M Y" }} {% trans 'year' %}{% endblock %}
 
 {% block content %}
     {% include "easy_news/news_include.html" %}
 {% endblock %}
 {% endraw %}{% if easy_news_settings.menu_proxy_was_installed %}
 {% raw %}{% load menuproxy_tags %}{% endraw %}
-{% if easy_news_settings.show_monthes %}{% raw %}
-{% block main_menu %}{% show_main_menu 'news_monthes' month %}{% endblock %}
-{% block auto_menu %}{% show_auto_menu 'news_monthes' month %}{% endblock %}
-{% block full_menu %}{% show_full_menu 'news_monthes' month %}{% endblock %}
-{% block breadcrumbs %}{% show_breadcrumbs 'news_monthes' month %}{% endblock %}
+{% if easy_news_settings.show_days %}{% raw %}
+{% block main_menu %}{% show_main_menu 'news_days' day %}{% endblock %}
+{% block auto_menu %}{% show_auto_menu 'news_days' day %}{% endblock %}
+{% block full_menu %}{% show_full_menu 'news_days' day %}{% endblock %}
+{% block breadcrumbs %}{% show_breadcrumbs 'news_days' day %}{% endblock %}
 {% endraw %}{% else %}{% if easy_news_settings.list_in_root %}{% raw %}
 {% block main_menu %}{% show_main_menu 'news_list' %}{% endblock %}
 {% block auto_menu %}{% show_auto_menu 'news_list' %}{% endblock %}

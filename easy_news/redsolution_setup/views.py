@@ -4,10 +4,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from grandma.models import GrandmaSettings
-from easy_news.grandma_setup.models import EasyNewsSettings
+from redsolutioncms.models import CMSSettings
+from easy_news.redsolution_setup.models import EasyNewsSettings
 
-from easy_news.grandma_setup.admin import EasyNewsSettingsAdmin
+from easy_news.redsolution_setup.admin import EasyNewsSettingsAdmin
 
 def index(request):
     admin_instance = EasyNewsSettingsAdmin()

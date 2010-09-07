@@ -2,7 +2,7 @@
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from grandma.models import GrandmaSettings, BaseSettings, BaseSettingsManager
+from redsolutioncms.models import CMSSettings, BaseSettings, BaseSettingsManager
 
 class EasyNewsSettingsManager(BaseSettingsManager):
     def get_settings(self):
@@ -12,7 +12,7 @@ class EasyNewsSettingsManager(BaseSettingsManager):
             easy_news_settings = self.get_query_set().create()
             if easy_news_settings.model_url_was_installed():
                 try:
-                    from modelurl.grandma_setup.models import ModelUrlSettings
+                    from modelurl.redsolution_setup.models import ModelUrlSettings
                 except ImportError:
                     pass
                 else:
@@ -22,7 +22,7 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                     # model_url_settings.views.get_or_create(view='django.views.generic.date_based.object_detail', object='object')
             if easy_news_settings.seo_was_installed():
                 try:
-                    from seo.grandma_setup.models import SeoSettings
+                    from seo.redsolution_setup.models import SeoSettings
                 except ImportError:
                     pass
                 else:
@@ -30,7 +30,7 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                     seo_settings.models.get_or_create(model='easy_news.models.News')
             if easy_news_settings.attachment_was_installed():
                 try:
-                    from attachment.grandma_setup.models import AttachmentSettings
+                    from attachment.redsolution_setup.models import AttachmentSettings
                 except ImportError:
                     pass
                 else:
@@ -39,7 +39,7 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                     attachment_settings.links.get_or_create(model='easy_news.models.News')
             if easy_news_settings.trusted_html_was_installed():
                 try:
-                    from trustedhtml.grandma_setup.models import TrustedSettings
+                    from trustedhtml.redsolution_setup.models import TrustedSettings
                 except ImportError:
                     pass
                 else:
@@ -65,24 +65,24 @@ class EasyNewsSettings(BaseSettings):
         blank=True, default=True)
 
     def seo_was_installed(self):
-        grandma_settings = GrandmaSettings.objects.get_settings()
-        return grandma_settings.package_was_installed('grandma.django-seo')
+        cms_settings = CMSSettings.objects.get_settings()
+        return cms_settings.package_was_installed('redsolutioncms.django-seo')
 
     def attachment_was_installed(self):
-        grandma_settings = GrandmaSettings.objects.get_settings()
-        return grandma_settings.package_was_installed('grandma.django-tinymce-attachment')
+        cms_settings = CMSSettings.objects.get_settings()
+        return cms_settings.package_was_installed('redsolutioncms.django-tinymce-attachment')
 
     def model_url_was_installed(self):
-        grandma_settings = GrandmaSettings.objects.get_settings()
-        return grandma_settings.package_was_installed('grandma.django-model-url')
+        cms_settings = CMSSettings.objects.get_settings()
+        return cms_settings.package_was_installed('redsolutioncms.django-model-url')
 
     def trusted_html_was_installed(self):
-        grandma_settings = GrandmaSettings.objects.get_settings()
-        return grandma_settings.package_was_installed('grandma.django-trusted-html')
+        cms_settings = CMSSettings.objects.get_settings()
+        return cms_settings.package_was_installed('redsolutioncms.django-trusted-html')
 
     def menu_proxy_was_installed(self):
-        grandma_settings = GrandmaSettings.objects.get_settings()
-        return grandma_settings.package_was_installed('grandma.django-menu-proxy')
+        cms_settings = CMSSettings.objects.get_settings()
+        return cms_settings.package_was_installed('redsolutioncms.django-menu-proxy')
 
     def show_archive(self):
         return not self.list_in_root
