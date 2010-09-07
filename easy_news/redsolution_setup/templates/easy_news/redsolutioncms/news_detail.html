@@ -12,9 +12,9 @@
 {% load seo_tags %}
 {% block keywords %}{% seo keywords for object %}{% endblock %}
 {% block description %}{% seo description for object %}{% endblock %}" 
-{% block title %}{% seo title for object as seo_title %}{% if seo_title %}{{ seo_title }}{% else %}{{ object.title }}{% endif %}{% endblock %}
+{% block title %}{% seo title for object as title %}{% if title %}{{ title }}{% else %}{{ object.title }}{% endif %}{% endblock %}
 {% endraw %}{% else %}{% raw %}
-{% block title %}{% trans 'News for' %} {{ day|date:"j M Y" }} {% trans 'year' %}{% endblock %}
+{% block title %}{{ object.title }}{% endblock %}
 {% endraw %}{% endif %}{% if easy_news_settings.menu_proxy_was_installed %}{% raw %}
 {% load menuproxy_tags %}
 {% block main_menu %}{% show_main_menu 'news_detail' object %}{% endblock %}

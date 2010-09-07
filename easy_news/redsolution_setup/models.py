@@ -18,8 +18,6 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                 else:
                     model_url_settings = ModelUrlSettings.objects.get_settings()
                     model_url_settings.models.get_or_create(model='easy_news.models.News')
-                    # TODO:
-                    # model_url_settings.views.get_or_create(view='django.views.generic.date_based.object_detail', object='object')
             if easy_news_settings.seo_was_installed():
                 try:
                     from seo.redsolution_setup.models import SeoSettings

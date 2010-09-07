@@ -1,7 +1,17 @@
 {% load redsolutioncms_tags %}{% raw %}{% extends "easy_news/base.html" %}
 {% load i18n %}
 
+{% if easy_news_settings.seo_was_installed %}{% raw %}
+{% load seo_tags %}
+{% block title %}
+{% seo title as title %}
+{% if title %}{{ title }}{% else %}
+    {% trans 'News for' %} {{ month|date:"F Y" }} {% trans 'year' %}
+{% endif %}
+{% endblock %}
+{% endraw %}{% else %}{% raw %}
 {% block title %}{% trans 'News for' %} {{ month|date:"F Y" }} {% trans 'year' %}{% endblock %}
+{% endraw %}{% endif %}{% endif %}
 {% block content_title %}{% trans 'News for' %} {{ month|date:"F Y" }} {% trans 'year' %}{% endblock %}
 
 {% block content %}

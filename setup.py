@@ -10,10 +10,10 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name="grandma.django-easy-news",
+    name="redsolutioncms.django-easy-news",
     version="0.2.0",
     description=("Django news application" +
-        " with GrandmaCMS integration"),
+        " with RedsolutionCMS integration"),
     license="LGPL",
     keywords="django news",
 
@@ -26,14 +26,15 @@ setup(
     url="http://packages.python.org/django-easy-news",
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Framework :: Buildout',
         'Intended Audience :: Developers',
         'License :: Freely Distributable',
+        'Framework :: Django',
+        'Environment :: Web Environment',
         'Natural Language :: Russian',
-        'Operating System :: Microsoft :: Windows',
-        'Operating System :: Unix',
-        'Programming Language :: Python :: 2.5',
-        'Topic :: Software Development :: Version Control',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary',
     ],
     packages=find_packages(),
     install_requires=[],
@@ -41,6 +42,6 @@ setup(
     zip_safe=False,
     long_description=open('README').read(),
     entry_points={
-        'grandma_setup': ['easy_news = easy_news.grandma_setup', ],
+        'redsolutioncms': ['easy_news = easy_news.redsolution_setup', ],
     }
 )

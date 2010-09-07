@@ -1,4 +1,3 @@
-import os
 from redsolutioncms.make import BaseMake
 from redsolutioncms.models import CMSSettings
 from easy_news.redsolution_setup.models import EasyNewsSettings
@@ -21,38 +20,38 @@ class Make(BaseMake):
         cms_settings.render_to('urls.py', 'easy_news/redsolutioncms/urls.pyt', {
             'easy_news_settings': easy_news_settings,
         })
-        cms_settings.render_to(os.path.join('..', 'templates', 'easy_news', 'news_detail.html'),
+        cms_settings.render_to(['..', 'templates', 'easy_news', 'news_detail.html'],
             'easy_news/redsolutioncms/news_detail.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
-        cms_settings.render_to(os.path.join('..', 'templates', 'easy_news', 'news_archive.html'),
+        cms_settings.render_to(['..', 'templates', 'easy_news', 'news_archive.html'],
             'easy_news/redsolutioncms/news_archive.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
-        cms_settings.render_to(os.path.join('..', 'templates', 'easy_news', 'news_archive_day.html'),
+        cms_settings.render_to(['..', 'templates', 'easy_news', 'news_archive_day.html'],
             'easy_news/redsolutioncms/news_archive_day.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
-        cms_settings.render_to(os.path.join('..', 'templates', 'easy_news', 'news_archive_month.html'),
+        cms_settings.render_to(['..', 'templates', 'easy_news', 'news_archive_month.html'],
             'easy_news/redsolutioncms/news_archive_month.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
-        cms_settings.render_to(os.path.join('..', 'templates', 'easy_news', 'news_archive_year.html'),
+        cms_settings.render_to(['..', 'templates', 'easy_news', 'news_archive_year.html'],
             'easy_news/redsolutioncms/news_archive_year.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
-        cms_settings.render_to(os.path.join('..', 'templates', 'easy_news', 'news_list.html'),
+        cms_settings.render_to(['..', 'templates', 'easy_news', 'news_list.html'],
             'easy_news/redsolutioncms/news_list.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
 
     def postmake(self):
         super(Make, self).postmake()
-        cms_settings = CMSSettings.objects.get_settings()
-        if not cms_settings.package_was_installed('redsolutioncms.django-menu-proxy'):
-            return
         easy_news_settings = EasyNewsSettings.objects.get_settings()
-        cms_settings.render_to('settings.py', 'easy_news/redsolutioncms/settings_menu.py', {
+        if not easy_news_settings.menu_proxy_was_installed():
+            return
+        cms_settings = CMSSettings.objects.get_settings()
+        cms_settings.render_to('settings.py', 'easy_news/redsolutioncms/settings_menu.pyt', {
             'easy_news_settings': easy_news_settings,
         })
 
