@@ -1,12 +1,12 @@
 {% load redsolutioncms_tags %}{% raw %}{% extends "easy_news/base.html" %}
 {% load i18n %}
-
+{% endraw %}
 {% if easy_news_settings.seo_was_installed %}{% raw %}
 {% load seo_tags %}
 {% block title %}{% seo title as title %}{% if title %}{{ title }}{% else %}{% trans 'Last news' %}{% endif %}{% endblock %}
 {% endraw %}{% else %}{% raw %}
 {% block title %}{% trans 'Last news' %}{% endblock %}
-{% endraw %}{% endif %}{% endif %}
+{% endraw %}{% endif %}{% raw %}
 {% block content_title %}{% trans 'Last news' %}{% endblock %}
 
 {% block content %}
