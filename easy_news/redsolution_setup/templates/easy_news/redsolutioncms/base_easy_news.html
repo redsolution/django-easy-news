@@ -1,0 +1,7 @@
+{% load redsolutioncms_tags %}{% start_block %} extends '{{ cms_settings.base_template }}' {% end_block %}
+{% raw %}
+{% block right %}
+    {{ block.super }}
+    {% load easy_news_tags %}{% show_news %}
+{% endblock right %}
+{% endraw %}

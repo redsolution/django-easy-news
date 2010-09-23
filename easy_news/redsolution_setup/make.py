@@ -4,12 +4,6 @@ from easy_news.redsolution_setup.models import EasyNewsSettings
 from django.template.loader import render_to_string
 
 class Make(BaseMake):
-    def premake(self):
-        super(Make, self).premake()
-        cms_settings = CMSSettings.objects.get_settings()
-        cms_settings.right_blocks.create(html=
-            render_to_string('easy_news/redsolutioncms/right.html'))
-
     def make(self):
         super(Make, self).make()
         easy_news_settings = EasyNewsSettings.objects.get_settings()
@@ -44,15 +38,11 @@ class Make(BaseMake):
             'easy_news/redsolutioncms/news_list.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
-
-    def postmake(self):
-        super(Make, self).postmake()
-        easy_news_settings = EasyNewsSettings.objects.get_settings()
-        if not easy_news_settings.menu_proxy_was_installed():
-            return
-        cms_settings = CMSSettings.objects.get_settings()
-        cms_settings.render_to('settings.py', 'easy_news/redsolutioncms/settings_menu.pyt', {
+        cms_settings.render_to(['..', 'templates', 'base_easy_news.html'],
+            'easy_news/redsolutioncms/base_easy_news.html', {
             'easy_news_settings': easy_news_settings,
-        })
+        }, 'w')
+        cms_settings.base_template = 'base_easy_news.html'
+        cms_settings.save()
 
 make = Make()
