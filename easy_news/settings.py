@@ -11,3 +11,7 @@ else:
         NEWS_TAGGING = getattr(settings, 'NEWS_TAGGING', False)
     except ImportError:
         NEWS_TAGGING = False
+
+ENABLE_NEWS_LIST = getattr(settings, 'ENABLE_NEWS_LIST', True)
+ENABLE_ARCHIVE_INDEX = getattr(settings, 'ENABLE_ARCHIVE_INDEX', True)
+ENABLE_DATE_ARCHIVE = getattr(settings, 'ENABLE_DATE_ARCHIVE', True)
