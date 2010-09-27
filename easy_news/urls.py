@@ -43,12 +43,12 @@ if news_settings.ENABLE_NEWS_LIST:
         url(r'^list/$', 'django.views.generic.list_detail.object_list', object_list_dict, name='news_list'),
     )
 
-if news_settings.ENABLE_ARCHIVE_INDEX:
+if news_settings.ENABLE_NEWS_ARCHIVE_INDEX:
     urlpatterns += patterns('',
         url(r'^$', 'django.views.generic.date_based.archive_index', archive_index_dict, name='news_archive_index'),
     )
 
-if news_settings.ENABLE_DATE_ARCHIVE:
+if news_settings.ENABLE_NEWS_DATE_ARCHIVE:
     urlpatterns += patterns('',
         url(r'^archive/(?P<year>\d{4})/$', 'django.views.generic.date_based.archive_year', archive_year_dict, name='news_archive_year'),
         url(r'^archive/(?P<year>\d{4})-(?P<month>\d{2})/$', 'django.views.generic.date_based.archive_month', archive_month_dict, name='news_archive_month'),
