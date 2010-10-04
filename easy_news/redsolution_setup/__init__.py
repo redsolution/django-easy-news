@@ -1,0 +1,1 @@
+frontpage_handler = True
