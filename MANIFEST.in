@@ -1,2 +1,1 @@
-recursive-include easy_news *
-exclude *.orig *.pyc
+recursive-include easy_news *.txt *.pyt *.html *.css *.js

@@ -1,7 +1,8 @@
-# ------------  django-easy-news ----------------
+# ---- easy-news ----
+
 INSTALLED_APPS += ['easy_news']
 
-{% if easy_news_settings.menu_proxy_was_installed %}
+{% if 'redsolutioncms.menu_proxy' in cms_settings.installed_packages %}
 try:
     MENU_PROXY_RULES
 except NameError:

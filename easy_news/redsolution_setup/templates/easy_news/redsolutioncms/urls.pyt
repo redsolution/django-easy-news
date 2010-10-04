@@ -6,7 +6,7 @@ urlpatterns += patterns('',
 )
 {% else %}
 urlpatterns += patterns('',
-    (r'^news/', include('easy_news.urls'))
+    (r'^news/', include('easy_news.urls')),
 )
 {% endif %}
 
@@ -15,4 +15,10 @@ news_dict = {
     'queryset': News.objects.filter(show=True),
     'date_field': 'date',
 }
+
+try:
+    sitemaps
+except NameError:
+    sitemps = {}
+
 sitemaps['news'] = GenericSitemap(news_dict)

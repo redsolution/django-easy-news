@@ -10,15 +10,10 @@ class EasyNewsSettingsManager(BaseSettingsManager):
             return self.get_query_set()[0]
         else:
             easy_news_settings = self.get_query_set().create()
-            if easy_news_settings.model_url_was_installed():
-                try:
-                    from modelurl.redsolution_setup.models import ModelUrlSettings
-                except ImportError:
-                    pass
-                else:
-                    model_url_settings = ModelUrlSettings.objects.get_settings()
-                    model_url_settings.models.get_or_create(model='easy_news.models.News')
-            if easy_news_settings.seo_was_installed():
+            cms_settings = CMSSettings.objects.get_settings()
+
+            # django-seo integration
+            if 'redsolutioncms.django-seo' in cms_settings.installed_packages:
                 try:
                     from seo.redsolution_setup.models import SeoSettings
                 except ImportError:
@@ -26,7 +21,9 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                 else:
                     seo_settings = SeoSettings.objects.get_settings()
                     seo_settings.models.get_or_create(model='easy_news.models.News')
-            if easy_news_settings.attachment_was_installed():
+
+            # django-tinymce-attachment integration
+            if 'redsolutioncms.django-tinymce-attachment' in cms_settings.installed_packages:
                 try:
                     from attachment.redsolution_setup.models import AttachmentSettings
                 except ImportError:
@@ -35,7 +32,9 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                     attachment_settings = AttachmentSettings.objects.get_settings()
                     attachment_settings.models.get_or_create(model='easy_news.models.News')
                     attachment_settings.links.get_or_create(model='easy_news.models.News')
-            if easy_news_settings.trusted_html_was_installed():
+
+            # django-trustedhtml integration
+            if 'redsolutioncms.django-trustedhtml' in cms_settings.installed_packages:
                 try:
                     from trustedhtml.redsolution_setup.models import TrustedSettings
                 except ImportError:
@@ -45,6 +44,16 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                     model, _ = trusted_settings.models.get_or_create(model='easy_news.models.News')
                     model.fields.get_or_create(field='short')
                     model.fields.get_or_create(field='text')
+
+            # django-model-url integration
+            if 'redsolutioncms.django-model-url' in cms_settings.installed_packages:
+                try:
+                    from modelurl.redsolution_setup.models import ModelUrlSettings
+                except ImportError:
+                    pass
+                else:
+                    model_url_settings = ModelUrlSettings.objects.get_settings()
+                    model_url_settings.models.get_or_create(model='easy_news.models.News')
             return easy_news_settings
 
 
@@ -61,26 +70,6 @@ class EasyNewsSettings(BaseSettings):
         max_length=1, choices=MENU_PROXY_LEVELS, default='0')
     list_in_root = models.BooleanField(verbose_name=_('List of news in root of menu'),
         blank=True, default=True)
-
-    def seo_was_installed(self):
-        cms_settings = CMSSettings.objects.get_settings()
-        return cms_settings.package_was_installed('redsolutioncms.django-seo')
-
-    def attachment_was_installed(self):
-        cms_settings = CMSSettings.objects.get_settings()
-        return cms_settings.package_was_installed('redsolutioncms.django-tinymce-attachment')
-
-    def model_url_was_installed(self):
-        cms_settings = CMSSettings.objects.get_settings()
-        return cms_settings.package_was_installed('redsolutioncms.django-model-url')
-
-    def trusted_html_was_installed(self):
-        cms_settings = CMSSettings.objects.get_settings()
-        return cms_settings.package_was_installed('redsolutioncms.django-trusted-html')
-
-    def menu_proxy_was_installed(self):
-        cms_settings = CMSSettings.objects.get_settings()
-        return cms_settings.package_was_installed('redsolutioncms.django-menu-proxy')
 
     def show_archive(self):
         return not self.list_in_root
