@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Django easy news Russian translation
+# Copyright (C) 2010
+# This file is distributed under the same license as the LGPL package.
+# IVAN GROMOV <SRC@REDSOLUTION.RU>, 2010.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-05 14:03+0600\n"
+"POT-Creation-Date: 2010-10-07 00:35+0600\n"
 "PO-Revision-Date: 2010-04-09 12:18+0600\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: IVAN GROMOV <SRC@REDSOLUTION.RU>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,56 +64,56 @@ msgstr "Ноября"
 msgid " December"
 msgstr "Декабря"
 
-#: redsolution_setup/models.py:55
-msgid "Show only root"
-msgstr ""
-
-#: redsolution_setup/models.py:59
-msgid "Show years, months, days and detail list of news"
-msgstr ""
-
 #: redsolution_setup/models.py:62
+msgid "Show only root"
+msgstr "Отображать только корень"
+
+#: redsolution_setup/models.py:66
+msgid "Show years, months, days and detail list of news"
+msgstr "Отображать годы, месяцы, дни и список новостей"
+
+#: redsolution_setup/models.py:69
 msgid "Menu proxy level"
-msgstr ""
+msgstr "Уровень вложенности меню"
 
-#: redsolution_setup/models.py:64
+#: redsolution_setup/models.py:71
 msgid "List of news in root of menu"
-msgstr ""
+msgstr "Список новостей в корне меню"
 
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:5
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:6
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:8
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:10
 msgid "Last news"
-msgstr ""
+msgstr "Последние новости"
 
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:14
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive.html:19
 #: redsolution_setup/templates/easy_news/redsolutioncms/news_detail.html:9
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/settings_menu.pyt:8
-#: redsolution_setup/templates/easy_news/redsolutioncms/settings_menu.pyt:70
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:6
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:8
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_list.html:10
 msgid "All news"
-msgstr ""
+msgstr "Все новости"
 
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_detail.html:17
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:13
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:15
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:13
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:15
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:13
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:15
 msgid "News for"
-msgstr ""
+msgstr "Новости"
 
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:4
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:5
-#: redsolution_setup/templates/easy_news/redsolutioncms/news_detail.html:17
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:13
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_day.html:15
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:13
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_month.html:15
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:9
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:13
+#: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:15
 msgid "year"
-msgstr ""
-
-#: redsolution_setup/templates/easy_news/redsolutioncms/settings_menu.pyt:16
-msgid "news"
-msgstr ""
+msgstr "год"
