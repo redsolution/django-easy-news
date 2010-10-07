@@ -34,7 +34,7 @@ class EasyNewsSettingsManager(BaseSettingsManager):
                     attachment_settings.links.get_or_create(model='easy_news.models.News')
 
             # django-trustedhtml integration
-            if 'redsolutioncms.django-trustedhtml' in cms_settings.installed_packages:
+            if 'redsolutioncms.django-trusted-html' in cms_settings.installed_packages:
                 try:
                     from trustedhtml.redsolution_setup.models import TrustedSettings
                 except ImportError:
