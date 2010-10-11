@@ -11,9 +11,8 @@ def read(fname):
 
 setup(
     name="redsolutioncms.django-easy-news",
-    version="0.2.0",
-    description=("Django news application" +
-        " with RedsolutionCMS integration"),
+    version=__import__('easy_news').__version__,
+    description=open('DESCRIPTION').read(),
     license="LGPL",
     keywords="django news",
 
@@ -36,7 +35,7 @@ setup(
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary',
     ],
-    packages=find_packages(),
+    packages=find_packages(exclude=['example', 'example.*']),
     install_requires=[],
     include_package_data=True,
     zip_safe=False,

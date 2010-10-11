@@ -1,0 +1,3 @@
+News application. Allow to publish news on site. You can show news archive,
+calendar block, or latest news block in template. 
+Admin editor compatible with django-tinyMCE.  
