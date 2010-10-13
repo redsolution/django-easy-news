@@ -7,12 +7,15 @@ from setuptools import setup, find_packages
 # README file and 2) it's easier to type in the README file than to put a raw
 # string in below ...
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    try:
+        return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    except IOError:
+        return ''
 
 setup(
     name="redsolutioncms.django-easy-news",
     version=__import__('easy_news').__version__,
-    description=open('DESCRIPTION').read(),
+    description=read('DESCRIPTION'),
     license="LGPL",
     keywords="django news",
 
@@ -39,7 +42,7 @@ setup(
     install_requires=[],
     include_package_data=True,
     zip_safe=False,
-    long_description=open('README').read(),
+    long_description=read('README'),
     entry_points={
         'redsolutioncms': ['easy_news = easy_news.redsolution_setup', ],
     }

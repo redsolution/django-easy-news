@@ -1,1 +1,2 @@
 recursive-include easy_news *.txt *.pyt *.html *.css *.js
+include README README.rst DESCRIPTION INSTALL.txt
