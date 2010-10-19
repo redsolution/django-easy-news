@@ -1,2 +1,3 @@
-recursive-include easy_news *.txt *.pyt *.html *.css *.js
+recursive-include easy_news *
 include README README.rst DESCRIPTION INSTALL.txt
+exclude *.orig *.pyc
