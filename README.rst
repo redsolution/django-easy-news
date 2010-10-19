@@ -66,7 +66,7 @@ Full settings list:
 Classifiers:
 -------------
 
-`Frontpage handlers`
+`Frontpage handlers`_
 
 .. _`django generic views system`: http://docs.djangoproject.com/en/1.2/ref/generic-views/
 .. _`django.views.generic.date_based.archive_index`: http://docs.djangoproject.com/en/1.2/ref/generic-views/#django-views-generic-date-based-archive-index
