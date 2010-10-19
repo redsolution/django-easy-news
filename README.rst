@@ -63,6 +63,12 @@ Full settings list:
 - ``ENABLE_NEWS_DATE_ARCHIVE`` (boolean) - render django generic date **full archive** of news objects. Default - True
 - ``NEWS_TAGGING`` (boolean) - use news tagging. Default - if `django-tagging`_ is installed, True, otherwise False
 
+Classifiers:
+-----------
+
+`Frontpage handlers`
+
 .. _`django generic views system`: http://docs.djangoproject.com/en/1.2/ref/generic-views/
 .. _`django.views.generic.date_based.archive_index`: http://docs.djangoproject.com/en/1.2/ref/generic-views/#django-views-generic-date-based-archive-index
 .. _`django-tagging`: http://pypi.python.org/pypi/django-tagging/
+.. _`Frontpage handlers`: http://djangoworkshop.com/classifiers/frontpage
