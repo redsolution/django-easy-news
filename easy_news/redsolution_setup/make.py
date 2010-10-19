@@ -1,7 +1,8 @@
 from redsolutioncms.make import BaseMake
 from redsolutioncms.models import CMSSettings
 from easy_news.redsolution_setup.models import EasyNewsSettings
-from django.template.loader import render_to_string
+from os.path import dirname, join
+
 
 class Make(BaseMake):
     def make(self):
@@ -42,6 +43,13 @@ class Make(BaseMake):
             'easy_news/redsolutioncms/base_easy_news.html', {
             'easy_news_settings': easy_news_settings,
         }, 'w')
+        
+        # copy initial data fixture
+        cms_settings.copy_file(
+            join(cms_settings.project_dir, 'fixtures', 'initial_data.json'),
+            join(dirname(__file__), 'fixtures', 'project_data', 'initial_data.json'),
+            mode='a',
+        )
         cms_settings.base_template = 'base_easy_news.html'
         cms_settings.save()
 
