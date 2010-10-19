@@ -64,7 +64,7 @@ Full settings list:
 - ``NEWS_TAGGING`` (boolean) - use news tagging. Default - if `django-tagging`_ is installed, True, otherwise False
 
 Classifiers:
------------
+-------------
 
 `Frontpage handlers`
 
