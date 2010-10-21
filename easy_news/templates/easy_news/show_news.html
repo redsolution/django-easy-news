@@ -3,6 +3,7 @@
         {% for object in object_list %}
             <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
             <div class="news-title"><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></div>
+            <div class="news-short">{{ object.short|truncatewords_html:10|safe }}</div>
         {% endfor %}
     {% else %}
         <div class="news-empty">Нет новостей</div>
