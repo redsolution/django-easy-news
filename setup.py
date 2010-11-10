@@ -16,7 +16,7 @@ setup(
     name="redsolutioncms.django-easy-news",
     version=__import__('easy_news').__version__,
     description=read('DESCRIPTION'),
-    license="LGPL",
+    license="GPLv3",
     keywords="django news",
 
     author="Alexander Ivanov",
