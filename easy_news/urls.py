@@ -30,17 +30,13 @@ object_detail_dict = {
     'slug_field': 'slug',
 }
 
-object_list_dict = {
-    'queryset': News.objects.filter(show=True, date__lte=datetime.datetime.now),
-}
-
 urlpatterns = patterns('',
     url(r'^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})-(?P<slug>[-\w]+)/$', 'django.views.generic.date_based.object_detail', object_detail_dict, name='news_detail'),
 )
 
 if news_settings.ENABLE_NEWS_LIST:
     urlpatterns += patterns('',
-        url(r'^list/$', 'django.views.generic.list_detail.object_list', object_list_dict, name='news_list'),
+        url(r'^list/$', 'easy_news.views.news_list', name='news_list'),
     )
 
 if news_settings.ENABLE_NEWS_ARCHIVE_INDEX:
