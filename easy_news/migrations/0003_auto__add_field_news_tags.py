@@ -4,18 +4,22 @@ from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
 
+from easy_news import settings
+
 class Migration(SchemaMigration):
     
     def forwards(self, orm):
-        
-        # Adding field 'News.tags'
-        db.add_column('easy_news_news', 'tags', self.gf('tagging.fields.TagField')(null=True), keep_default=False)
+
+        if settings.NEWS_TAGGING:
+            # Adding field 'News.tags'
+            db.add_column('easy_news_news', 'tags', self.gf('tagging.fields.TagField')(null=True), keep_default=False)
     
     
     def backwards(self, orm):
         
-        # Deleting field 'News.tags'
-        db.delete_column('easy_news_news', 'tags')
+        if settings.NEWS_TAGGING:
+            # Deleting field 'News.tags'
+            db.delete_column('easy_news_news', 'tags')
     
     
     models = {
@@ -26,10 +30,11 @@ class Migration(SchemaMigration):
             'short': ('tinymce.models.HTMLField', [], {'default': "''", 'blank': 'True'}),
             'show': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '200', 'db_index': 'True'}),
-            'tags': ('tagging.fields.TagField', [], {'null': 'True'}),
             'text': ('tinymce.models.HTMLField', [], {'default': "''", 'blank': 'True'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '500'})
         }
     }
+    if settings.NEWS_TAGGING:
+        models['easy_news.news']['tags'] = ('tagging.fields.TagField', [], {'null': 'True'})
     
     complete_apps = ['easy_news']
