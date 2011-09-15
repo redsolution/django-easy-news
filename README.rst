@@ -37,7 +37,7 @@ Template tags:
 
 If you want to use easy_news template tags, load ``easy_news_tags``::
 
-    {% load menuproxy_tags %}
+    {% load easy_news_tags %}
 
 show_news
 ``````````
