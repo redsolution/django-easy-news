@@ -2,7 +2,6 @@
 
 from datetime import date, timedelta, datetime
 from django import template
-from django.views.generic.date_based import archive_index
 from easy_news.models import News
 
 register = template.Library()

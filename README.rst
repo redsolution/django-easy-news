@@ -77,3 +77,7 @@ Classifiers:
 .. _`django-tagging`: http://pypi.python.org/pypi/django-tagging/
 .. _`Frontpage handlers`: http://www.redsolutioncms.org/classifiers/frontpage
 
+0.3.0: Added support for django 1.7
+
+- Delete support menu proxy
+
