@@ -9,6 +9,7 @@ if news_settings.NEWS_TAGGING:
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
+        fields = '__all__'
     title = forms.CharField(widget=forms.Textarea(attrs={'rows': 3}), max_length=500)
     if news_settings.NEWS_TAGGING:
         tags = TagField(required=False)
