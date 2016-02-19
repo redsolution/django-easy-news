@@ -21,21 +21,22 @@ MONTHS = [
     _(' November'), _(' December')
 ]
 
+
 class News(models.Model):
     class Meta:
-        verbose_name = u'Новость'
-        verbose_name_plural = u'Новости'
+        verbose_name = _('News')
+        verbose_name_plural = _('News')
         ordering = ['-date', 'title', ]
 
-    title = models.CharField(max_length=500, verbose_name=u'Заголовок новости')
-    slug = models.SlugField(max_length=200, verbose_name=u'Слаг', unique_for_date='date')
+    title = models.CharField(max_length=500, verbose_name=_('Title'))
+    slug = models.SlugField(max_length=200, verbose_name=_('Slug'), unique_for_date='date')
 
-    date = models.DateField(verbose_name=u'Дата', default=datetime.date.today)
+    date = models.DateField(verbose_name=_('Publication date'), default=datetime.date.today)
 
-    short = HTMLField(verbose_name=u'Кратное описание', default='', blank=True)
-    text = HTMLField(verbose_name=u'Полный текст', default='', blank=True)
+    short = HTMLField(verbose_name=_('Short description'), default='', blank=True)
+    text = HTMLField(verbose_name=_('Full text'), default='', blank=True)
 
-    show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
+    show = models.BooleanField(verbose_name=_('Published'), default=True)
 
     if news_settings.NEWS_TAGGING:
         from tagging import fields

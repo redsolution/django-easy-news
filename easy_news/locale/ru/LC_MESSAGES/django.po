@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-28 14:47+0500\n"
+"POT-Creation-Date: 2016-02-19 16:08+0500\n"
 "PO-Revision-Date: 2010-04-09 12:18+0600\n"
 "Last-Translator: IVAN GROMOV <SRC@REDSOLUTION.RU>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:13 models.py:31
+msgid "Title"
+msgstr "Заголовок"
 
 #: apps.py:7
 msgid "Section News"
@@ -68,6 +72,30 @@ msgstr "Ноября"
 #: models.py:21
 msgid " December"
 msgstr "Декабря"
+
+#: models.py:27 models.py:28
+msgid "News"
+msgstr "Новости"
+
+#: models.py:32
+msgid "Slug"
+msgstr "Слаг"
+
+#: models.py:34
+msgid "Publication date"
+msgstr "Дата публикации"
+
+#: models.py:36
+msgid "Short description"
+msgstr "Краткое описание"
+
+#: models.py:37
+msgid "Full text"
+msgstr "Полный текст"
+
+#: models.py:39
+msgid "Published"
+msgstr "Опубликовано"
 
 #: redsolution_setup/models.py:62
 msgid "Show only root"
@@ -122,8 +150,3 @@ msgstr "Новости"
 #: redsolution_setup/templates/easy_news/redsolutioncms/news_archive_year.html:15
 msgid "year"
 msgstr "год"
-
-#, fuzzy
-#~| msgid "News for"
-#~ msgid "News"
-#~ msgstr "Новости"
