@@ -27,6 +27,7 @@ class News(models.Model):
         verbose_name_plural = u'Новости'
         ordering = ['-date', 'title', ]
 
+    author = models.CharField(max_length=200, verbose_name=u'Автор Новости', null=True, blank=True)
     title = models.CharField(max_length=500, verbose_name=u'Заголовок новости')
     slug = models.SlugField(max_length=200, verbose_name=u'Слаг', unique_for_date='date')
 
