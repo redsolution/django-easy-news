@@ -18,7 +18,7 @@ class NewsForm(forms.ModelForm):
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'date', 'show', ]
+    list_display = ['title', 'date', 'show', 'author']
     prepopulated_fields = {'slug': ('title',)}
     form = NewsForm
 
