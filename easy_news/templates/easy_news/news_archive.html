@@ -7,8 +7,8 @@
     {% include "easy_news/news_include.html" %}
     <div class="news-years">
         {% for date in date_list %}
-            <div><a href="{% url news_archive_year date|date:"Y" %}">{{ date|date:"Y" }}</a></div>
+            <div><a href="{% url 'news_archive_year' date|date:"Y" %}">{{ date|date:"Y" }}</a></div>
         {% endfor %}
     </div>
-    <div class="news-list"><a href="{% url news_list %}">Все новости</a></div>
+    <div class="news-list"><a href="{% url 'news_list' %}">Все новости</a></div>
 {% endblock %}

@@ -18,7 +18,7 @@
     {% include "easy_news/news_include.html" %}
     <div class="news-monthes">
         {% for date in date_list %}
-            <div><a href="{% url news_archive_month year date|date:"m" %}">{{ date|date:"F" }}</a></div>
+            <div><a href="{% url 'news_archive_month' year date|date:"m" %}">{{ date|date:"F" }}</a></div>
         {% endfor %}
     </div>
 {% endblock %}

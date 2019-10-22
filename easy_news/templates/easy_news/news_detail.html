@@ -6,5 +6,5 @@
 {% block content %}
     <div class="news-date">{{ object.date|date:"d" }} {{ object.month }} {{ object.date|date:"Y" }}</div>
     <div class="news-text">{{ object.text|safe }}</div>
-    <div class="news-list"><a href="{% url news_list %}">Все новости</a></div>
+    <div class="news-list"><a href="{% url 'news_list' %}">Все новости</a></div>
 {% endblock %}

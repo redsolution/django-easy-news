@@ -1,0 +1,8 @@
+
+{% if obj %}
+    <a href="{{ obj.get_absolute_url }}">
+        <time datetime="{{ obj.date|date:'Y-m-d' }}">{{ obj.date|date:"d.m.Y" }}</time>
+        <div>{{ obj.title }}</div>
+        <div>{{ obj.short_description|safe }}</div>
+    </a>
+{% endif %}
