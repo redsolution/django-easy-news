@@ -1,13 +1,13 @@
 {% extends "easy_news/base.html" %}
 
-{% block title %}Новости за {{ year }} год{% endblock %}
-{% block content_title %}Новости за {{ year }} год{% endblock %}
+{% block title %}Новости за {{ year|date:"Y" }} год{% endblock %}
+{% block content_title %}Новости за {{ year|date:"Y" }} год{% endblock %}
 
 {% block content %}
     {% include "easy_news/news_include.html" %}
     <div class="news-monthes">
         {% for date in date_list %}
-            <div><a href="{% url news_archive_month year date|date:"m" %}">{{ date|date:"F" }}</a></div>
+            <div><a href="{% url 'news_archive_month' year|date:"Y" date|date:"m" %}">{{ date|date:"F" }}</a></div>
         {% endfor %}
     </div>
 {% endblock %}

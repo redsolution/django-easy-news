@@ -15,3 +15,6 @@ else:
 ENABLE_NEWS_LIST = getattr(settings, 'ENABLE_NEWS_LIST', True)
 ENABLE_NEWS_ARCHIVE_INDEX = getattr(settings, 'ENABLE_NEWS_ARCHIVE_INDEX', True)
 ENABLE_NEWS_DATE_ARCHIVE = getattr(settings, 'ENABLE_NEWS_DATE_ARCHIVE', True)
+
+ADMIN_EXTRA_CLASS = getattr(settings, 'NEWS_ADMIN_EXTRA_CLASS', {'all': ''})
+ADMIN_EXTRA_CSS = getattr(settings, 'NEWS_ADMIN_EXTRA_CSS', {'all': ['']})

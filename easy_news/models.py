@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 from easy_news import settings as news_settings
+from django.utils import timezone
 
-try:
-    from south.modelsinspector import add_introspection_rules
-except ImportError:
-    pass
+
 
 try:
     from tinymce.models import HTMLField
@@ -21,21 +19,23 @@ MONTHS = [
     _(' November'), _(' December')
 ]
 
+
 class News(models.Model):
     class Meta:
-        verbose_name = u'Новость'
-        verbose_name_plural = u'Новости'
+        verbose_name = _('News')
+        verbose_name_plural = _('News')
         ordering = ['-date', 'title', ]
 
-    title = models.CharField(max_length=500, verbose_name=u'Заголовок новости')
-    slug = models.SlugField(max_length=200, verbose_name=u'Слаг', unique_for_date='date')
+    show = models.BooleanField(verbose_name=_('Published'), default=True)
+    title = models.CharField(max_length=500, verbose_name=_('Title'))
+    slug = models.SlugField(max_length=200, verbose_name=_('Slug'), unique_for_date='date')
+    author = models.CharField(max_length=100, verbose_name=_('Author'), null=True, blank=True)
 
-    date = models.DateField(verbose_name=u'Дата', default=datetime.date.today)
+    date = models.DateField(verbose_name=_('Publication date'), default=timezone.now)
+    creation_date = models.DateField(verbose_name=_('Creation date'), auto_now_add=True)
 
-    short = HTMLField(verbose_name=u'Кратное описание', default='', blank=True)
-    text = HTMLField(verbose_name=u'Полный текст', default='', blank=True)
-
-    show = models.BooleanField(verbose_name=u'Опубликовано', default=True)
+    short = models.TextField(verbose_name=_('Short description'), default='', blank=True)
+    text = HTMLField(verbose_name=_('main content'), default='', blank=True)
 
     if news_settings.NEWS_TAGGING:
         from tagging import fields
@@ -58,19 +58,21 @@ class News(models.Model):
             super(News, self).save(force_update=True)
     save.alters_data = True
 
-    @models.permalink
     def get_absolute_url(self):
-        return ('news_detail', [], {
+        return reverse('news_detail', kwargs={
             'year': '%04d' % self.date.year,
             'month': '%02d' % self.date.month,
             'day': '%02d' % self.date.day,
             'slug': self.slug,
         })
 
+    @property
+    def main_content(self):
+        return self.text
+
+    @property
+    def short_description(self):
+        return self.short
+
     def __unicode__(self):
         return self.title
-
-try:
-    add_introspection_rules([], ['tinymce\.models\.HTMLField'])
-except:
-    pass

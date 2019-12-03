@@ -1,0 +1,7 @@
+{% if object.news %}
+    <div>
+        {% for obj in object.news %}
+            {% include 'easy_news/parts/card.html' %}
+        {% endfor %}
+    </div>
+{% endif %}

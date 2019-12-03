@@ -1,1 +1,2 @@
-__version__ = '0.2.3'
+__version__ = '1.11'
+default_app_config = 'easy_news.apps.NewsAppConfig'

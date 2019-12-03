@@ -2,15 +2,23 @@
 
 from datetime import date, timedelta, datetime
 from django import template
-from django.views.generic.date_based import archive_index
 from easy_news.models import News
 
 register = template.Library()
 
-@register.inclusion_tag('easy_news/show_news.html')
+
+@register.inclusion_tag('easy_news/parts/block.html')
 def show_news(num_latest=5):
-    object_list = News.objects.filter(show=True).filter(date__lte=datetime.now()).order_by('-date')[:num_latest]
-    return locals()
+    return {'news': News.objects.filter(show=True, date__lte=datetime.now()).order_by('-date')[:num_latest]}
+
+
+@register.assignment_tag
+def get_news(num=None):
+    news = News.objects.filter(show=True, date__lte=datetime.now()).order_by('-date')
+    if num:
+        news = news[:num]
+    return news
+
 
 def get_last_day_of_month(year, month):
     if (month == 12):
@@ -20,7 +28,8 @@ def get_last_day_of_month(year, month):
         month += 1
     return date(year, month, 1) - timedelta(1)
 
-@register.inclusion_tag('easy_news/calendar.html')
+
+@register.inclusion_tag('easy_news/parts/calendar.html')
 def calendar(year=None, month=None):
     if not year:
         year = date.today().year
