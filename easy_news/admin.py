@@ -8,11 +8,11 @@ from easy_news import settings as news_settings
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
 
-    @property
-    def media(self):
-        media = super(NewsAdmin, self).media
-        media.add_css(news_settings.ADMIN_EXTRA_CSS)
-        return media
+    # @property
+    # def media(self):
+    #     media = super(NewsAdmin, self).media
+    #     media.add_css(news_settings.ADMIN_EXTRA_CSS)
+    #     return media
 
     list_filter = ['show']
     search_fields = ['title', 'short', 'text', 'author']

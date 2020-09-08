@@ -39,7 +39,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary',
     ],
     packages=find_packages(exclude=['example', 'example.*']),
-    install_requires=['django==1.11.*'],
+    install_requires=['django==2.2.*'],
     include_package_data=True,
     zip_safe=False,
     long_description=read('README'),

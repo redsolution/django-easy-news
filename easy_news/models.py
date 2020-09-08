@@ -74,5 +74,5 @@ class News(models.Model):
     def short_description(self):
         return self.short
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
