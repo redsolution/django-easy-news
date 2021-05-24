@@ -12,7 +12,7 @@ def show_news(num_latest=5):
     return {'news': News.objects.filter(show=True, date__lte=datetime.now()).order_by('-date')[:num_latest]}
 
 
-@register.assignment_tag
+@register.simple_tag()
 def get_news(num=None):
     news = News.objects.filter(show=True, date__lte=datetime.now()).order_by('-date')
     if num:
